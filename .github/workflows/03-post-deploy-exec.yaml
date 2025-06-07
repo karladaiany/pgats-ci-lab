@@ -17,12 +17,11 @@ on:
 # trabalhos/tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
-
     #maquina que o job vai executar
     runs-on: ubuntu-latest
 
     # condicional - if
-    # `${ expressao }` 
+    # `${ expressao }`
     # == comparacao
 
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -55,6 +54,6 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: 
+        with:
           name: relatorio
           path: ./playwright-report
